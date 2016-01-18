@@ -5,7 +5,7 @@ Mobile applications for test sending of push notifications.
 ## Supported
 - [x] Android
 - [x] iOS
-- [ ] UWP
+- [x] UWP
 
 ## Supported push-notification platforms
 - [x] Google
