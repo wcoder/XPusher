@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 using Acr.UserDialogs;
 using Plugin.Settings;
 using Xamarin.Forms;
@@ -63,11 +64,18 @@ namespace XPusher.ViewModels
 				SettingsApiKey = ApiKey;
 
 				UserDialogs.Instance.ShowLoading();
+				try
+				{
+					var result = await _sender.SendMessageAsync(ApiKey, Message);
 
-				var result = await _sender.SendMessageAsync(ApiKey, Message);
-
-				UserDialogs.Instance.HideLoading();
-				UserDialogs.Instance.Alert(result);
+					UserDialogs.Instance.HideLoading();
+					UserDialogs.Instance.ShowSuccess(result);
+				}
+				catch (Exception e)
+				{
+					UserDialogs.Instance.HideLoading();
+					UserDialogs.Instance.ShowError(e.Message);
+				}
 			}
 			else
 			{
