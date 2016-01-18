@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Acr.UserDialogs;
 
 namespace XPusher.Droid
 {
@@ -10,6 +11,8 @@ namespace XPusher.Droid
 		protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);
+
+			UserDialogs.Init(this);
 
 			global::Xamarin.Forms.Forms.Init(this, bundle);
 
