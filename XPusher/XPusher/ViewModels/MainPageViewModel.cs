@@ -1,8 +1,9 @@
 ﻿using XPusher.Base;
+using XPusher.Services;
 
 namespace XPusher.ViewModels
 {
-	class MainPageViewModel : BaseViewModel
+	internal class MainPageViewModel : BaseViewModel
 	{
 		public SendPageViewModel Android { get; set; }
 		public SendPageViewModel iOS { get; set; }
@@ -10,9 +11,9 @@ namespace XPusher.ViewModels
 
 		public MainPageViewModel()
 		{
-			Android = new SendPageViewModel {Title = "Android"};
-			iOS = new SendPageViewModel { Title = "iOS" };
-			WindowsMobile = new SendPageViewModel { Title = "Windows Mobile" };
+			Android = new SendPageViewModel(new AndroidPushSender()) {Title = "Android"};
+			//iOS = new SendPageViewModel() { Title = "iOS" };
+			//WindowsMobile = new SendPageViewModel() { Title = "Windows Mobile" };
 		}
 	}
 }
