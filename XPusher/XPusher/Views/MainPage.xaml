@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TabbedPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:pages="clr-namespace:XPusher.Views;assembly=XPusher"
+	xmlns:vm="clr-namespace:XPusher.ViewModels;assembly=XPusher"
+	x:Class="XPusher.Views.MainPage">
+	<TabbedPage.BindingContext>
+		<vm:MainPageViewModel />
+	</TabbedPage.BindingContext>
+	
+	<pages:SendPage BindingContext="{Binding Android}" Title="{Binding Title}" />
+	<pages:SendPage BindingContext="{Binding iOS}" Title="{Binding Title}"/>
+	<pages:SendPage BindingContext="{Binding WindowsMobile}" Title="{Binding Title}"/>
+</TabbedPage>
