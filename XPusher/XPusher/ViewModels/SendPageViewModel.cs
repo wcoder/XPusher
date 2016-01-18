@@ -69,17 +69,17 @@ namespace XPusher.ViewModels
 					var result = await _sender.SendMessageAsync(ApiKey, Message);
 
 					UserDialogs.Instance.HideLoading();
-					UserDialogs.Instance.ShowSuccess(result);
+					UserDialogs.Instance.Alert(result, "Result");
 				}
 				catch (Exception e)
 				{
 					UserDialogs.Instance.HideLoading();
-					UserDialogs.Instance.ShowError(e.Message);
+					UserDialogs.Instance.Alert(e.Message, "Exception");
 				}
 			}
 			else
 			{
-				UserDialogs.Instance.ShowError("All fields must be filled!");
+				UserDialogs.Instance.Alert("All fields must be filled!", "Warning");
 			}
 		}
 	}
